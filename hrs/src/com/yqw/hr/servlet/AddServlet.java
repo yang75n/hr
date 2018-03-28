@@ -7,7 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class LoginServlet extends HttpServlet {
+import com.yqw.hr.control.HrControl;
+import com.yqw.hr.data.Resume;
+
+public class AddServlet extends HttpServlet {
 
 	/**
 	 * 
@@ -17,7 +20,17 @@ public class LoginServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		System.out.println("LoginServlet comming");
+		System.out.println("AddServlet come in");
+		req.setCharacterEncoding("utf-8");
+		String name = req.getParameter("name");
+		String sex = req.getParameter("sex");
+		System.out.println("name=" + name + " ,sex=" + sex);
+		Resume resume = new Resume();
+		resume.setName(name);
+		resume.setSex(sex);
+
+		HrControl.getInstance().addResume(resume);
+
 		req.getRequestDispatcher("listResume.jsp").forward(req, resp);
 
 	}

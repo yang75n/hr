@@ -16,4 +16,12 @@
      <servlet-name>login</servlet-name>
      <url-pattern>/login</url-pattern>
   </servlet-mapping>
+    <servlet>
+     <servlet-name>add</servlet-name>
+     <servlet-class>com.yqw.hr.servlet.AddServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>add</servlet-name>
+     <url-pattern>/add</url-pattern>
+  </servlet-mapping>
 </web-app>

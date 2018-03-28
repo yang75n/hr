@@ -23,11 +23,16 @@
 </head>
 
 <body>
-	欢迎登录.
+	请添加简历
 	<br>
-	<form action="login" method="get">
-		用户名: <input type="text" name="username" /> <br />密码: <input type="password"
-			name="passwd" /><br /> <input type="submit" value="登录" />
+	<form action="add" method="post">
+		姓名: <input type="text" name="name" /> <br />性别: <input
+			type="text" name="sex" /><br /> 年龄: <input type="text"
+			name="username" /> <br />所在公司: <input type="text" name="sex" /><br />
+		入职时间: <input type="text" name="username" /> <br />学历: <input
+			type="text" name="sex" /><br />职位: <input type="text"
+			name="username" /> <br />薪资: <input type="text" name="sex" /><br />
+		<input type="submit" value="提交" />
 	</form>
 </body>
 </html>

@@ -23,11 +23,9 @@
 </head>
 
 <body>
-	欢迎登录.
-	<br>
-	<form action="login" method="get">
-		用户名: <input type="text" name="username" /> <br />密码: <input type="password"
-			name="passwd" /><br /> <input type="submit" value="登录" />
-	</form>
+	以下是简历列表.
+	<br><br>
+	暂无简历，请先添加<br><br><br><br><br><br><br><br><br><br><br>
+	<a href="addResume.jsp">添加简历</a>
 </body>
 </html>
