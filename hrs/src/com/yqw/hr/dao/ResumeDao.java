@@ -17,15 +17,24 @@ public class ResumeDao {
 		// 获取连接
 		Connection conn = DbUtil.getConnection();
 		// sql
-		String sql = "INSERT INTO imooc_goddess(user_name, sex, age, birthday, email, mobile,"
-				+ "create_user, create_date, update_user, update_date, isdel)"
+		String sql = "INSERT INTO resume(name, sex, age,company,entry_date,education,position,salary"
+				+ "update_date)"
 				+ "values("
-				+ "?,?,?,?,?,?,?,CURRENT_DATE(),?,CURRENT_DATE(),?)";
+				+ "?,?,?,?,?,?,?,?,CURRENT_DATE())";
 		// 预编译
 		PreparedStatement ptmt = conn.prepareStatement(sql); // 预编译SQL，减少sql执行
 		// 传参
 		ptmt.setString(1, resume.getName());
 		ptmt.setString(2, resume.getSex());
+		ptmt.setInt(3, resume.getAge());
+
+		ptmt.setString(4, resume.getCompany());
+		ptmt.setString(5, resume.getEntry_date());
+		ptmt.setString(6, resume.getEducation());
+
+		ptmt.setString(7, resume.getPosition());
+		ptmt.setString(8, resume.getSalary());
+
 		// 执行
 		ptmt.execute();
 	}
@@ -34,16 +43,24 @@ public class ResumeDao {
 		Connection conn = DbUtil.getConnection();
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt
-				.executeQuery("SELECT user_name, age FROM imooc_goddess");
+				.executeQuery("SELECT name, sex,age,company,entry_date,education,position,salary FROM resume");
 
 		List<Resume> gs = new ArrayList<Resume>();
-		Resume g = null;
+		Resume r = null;
 		while (rs.next()) {
-			g = new Resume();
-			g.setName(rs.getString("name"));
-			g.setAge(rs.getInt("age"));
+			r = new Resume();
+			r.setName(rs.getString("name"));
+			r.setSex(rs.getString("sex"));
+			r.setAge(rs.getInt("age"));
 
-			gs.add(g);
+			r.setCompany(rs.getString("company"));
+			r.setCompany(rs.getString("entry_date"));
+			r.setCompany(rs.getString("education"));
+			r.setCompany(rs.getString("position"));
+			r.setCompany(rs.getString("salary"));
+
+			System.out.println("get a resume =" + r);
+			gs.add(r);
 		}
 		return gs;
 	}

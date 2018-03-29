@@ -28,10 +28,10 @@
 	<form action="add" method="post">
 		姓名: <input type="text" name="name" /> <br />性别: <input
 			type="text" name="sex" /><br /> 年龄: <input type="text"
-			name="username" /> <br />所在公司: <input type="text" name="sex" /><br />
-		入职时间: <input type="text" name="username" /> <br />学历: <input
-			type="text" name="sex" /><br />职位: <input type="text"
-			name="username" /> <br />薪资: <input type="text" name="sex" /><br />
+			name="age" /> <br />所在公司: <input type="text" name="company" /><br />
+		入职时间: <input type="text" name="entry_date" /> <br />学历: <input
+			type="text" name="education" /><br />职位: <input type="text"
+			name=position /> <br />薪资: <input type="text" name="salary" /><br />
 		<input type="submit" value="提交" />
 	</form>
 </body>

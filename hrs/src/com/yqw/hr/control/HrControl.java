@@ -1,6 +1,7 @@
 package com.yqw.hr.control;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import com.yqw.hr.dao.ResumeDao;
 import com.yqw.hr.data.Resume;
@@ -30,6 +31,15 @@ public class HrControl {
 			e.printStackTrace();
 		}
 		return false;
+	}
+
+	public List<Resume> getAllResumes() {
+		try {
+			return resumeDao.listAll();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }

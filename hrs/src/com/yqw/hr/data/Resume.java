@@ -6,17 +6,18 @@ public class Resume {
 	private String sex;
 	private int age;
 	private String company;
-	private String startTime;
-	private String xueli;
-	private String xuewei;
-	private String xinzi;
+	private String entry_date;
+	private String education;
+	private String position;
+	private String salary;
+	private String update_date;
 
 	public String getName() {
 		return name;
 	}
 
-	public void setName(String namne) {
-		this.name = namne;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getSex() {
@@ -43,36 +44,52 @@ public class Resume {
 		this.company = company;
 	}
 
-	public String getStartTime() {
-		return startTime;
+	public String getEntry_date() {
+		return entry_date;
 	}
 
-	public void setStartTime(String startTime) {
-		this.startTime = startTime;
+	public void setEntry_date(String entry_date) {
+		this.entry_date = entry_date;
 	}
 
-	public String getXueli() {
-		return xueli;
+	public String getEducation() {
+		return education;
 	}
 
-	public void setXueli(String xueli) {
-		this.xueli = xueli;
+	public void setEducation(String education) {
+		this.education = education;
 	}
 
-	public String getXuewei() {
-		return xuewei;
+	public String getPosition() {
+		return position;
 	}
 
-	public void setXuewei(String xuewei) {
-		this.xuewei = xuewei;
+	public void setPosition(String position) {
+		this.position = position;
 	}
 
-	public String getXinzi() {
-		return xinzi;
+	public String getSalary() {
+		return salary;
 	}
 
-	public void setXinzi(String xinzi) {
-		this.xinzi = xinzi;
+	public void setSalary(String salary) {
+		this.salary = salary;
+	}
+
+	public String getUpdate_date() {
+		return update_date;
+	}
+
+	public void setUpdate_date(String update_date) {
+		this.update_date = update_date;
+	}
+
+	@Override
+	public String toString() {
+		return "Resume [name=" + name + ", sex=" + sex + ", age=" + age
+				+ ", company=" + company + ", entry_date=" + entry_date
+				+ ", education=" + education + ", position=" + position
+				+ ", salary=" + salary + "]";
 	}
 
 }

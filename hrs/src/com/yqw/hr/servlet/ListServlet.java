@@ -1,13 +1,17 @@
 package com.yqw.hr.servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class LoginServlet extends HttpServlet {
+import com.yqw.hr.control.HrControl;
+import com.yqw.hr.data.Resume;
+
+public class ListServlet extends HttpServlet {
 
 	/**
 	 * 
@@ -17,8 +21,14 @@ public class LoginServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		System.out.println("LoginServlet comming");
-		resp.sendRedirect("list");
+		System.out.println("ListServlet comming");
+
+		List<Resume> list = HrControl.getInstance().getAllResumes();
+		System.out.println("get list size="+list.size());
+		req.setAttribute("list", list);
+
+		req.getRequestDispatcher("listResume.jsp").forward(req, resp);
+
 	}
 
 	@Override

@@ -6,8 +6,8 @@ import java.sql.SQLException;
 
 public class DbUtil {
 	public static final String URL = "jdbc:mysql://localhost:3306/hr";
-	public static final String USER = "admin";
-	public static final String PASSWORD = "admin";
+	public static final String USER = "root";
+	public static final String PASSWORD = "";
 
 	private static Connection conn = null;
 	static {
