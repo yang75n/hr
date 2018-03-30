@@ -5,9 +5,13 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DbUtil {
-	public static final String URL = "jdbc:mysql://localhost:3306/hr";
+//	public static final String URL = "jdbc:mysql://localhost:3306/hr";
+	
+	public static final String URL = "jdbc:mysql://localhost:3306/hr?useUnicode=true&amp;characterEncoding=UTF-8";
+
+	
 	public static final String USER = "root";
-	public static final String PASSWORD = "";
+	public static final String PASSWORD = "admin";
 
 	private static Connection conn = null;
 	static {

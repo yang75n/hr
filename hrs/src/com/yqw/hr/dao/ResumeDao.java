@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.yqw.hr.data.Resume;
@@ -17,10 +18,10 @@ public class ResumeDao {
 		// 获取连接
 		Connection conn = DbUtil.getConnection();
 		// sql
-		String sql = "INSERT INTO resume(name, sex, age,company,entry_date,education,position,salary"
-				+ "update_date)"
+		String sql = "INSERT INTO resume(name,sex,age,company,entry_date,education,position,salary,"
+				+ "update_date) "
 				+ "values("
-				+ "?,?,?,?,?,?,?,?,CURRENT_DATE())";
+				+ "?,?,?,?,?,?,?,?,?);";
 		// 预编译
 		PreparedStatement ptmt = conn.prepareStatement(sql); // 预编译SQL，减少sql执行
 		// 传参
@@ -34,7 +35,8 @@ public class ResumeDao {
 
 		ptmt.setString(7, resume.getPosition());
 		ptmt.setString(8, resume.getSalary());
-
+		ptmt.setString(9, new Date().toLocaleString());
+		System.out.println("inset sql="+sql);
 		// 执行
 		ptmt.execute();
 	}
@@ -43,7 +45,7 @@ public class ResumeDao {
 		Connection conn = DbUtil.getConnection();
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt
-				.executeQuery("SELECT name, sex,age,company,entry_date,education,position,salary FROM resume");
+				.executeQuery("SELECT name, sex,age,company,entry_date,education,position,salary,update_date FROM resume");
 
 		List<Resume> gs = new ArrayList<Resume>();
 		Resume r = null;
@@ -54,10 +56,11 @@ public class ResumeDao {
 			r.setAge(rs.getInt("age"));
 
 			r.setCompany(rs.getString("company"));
-			r.setCompany(rs.getString("entry_date"));
-			r.setCompany(rs.getString("education"));
-			r.setCompany(rs.getString("position"));
-			r.setCompany(rs.getString("salary"));
+			r.setEntry_date(rs.getString("entry_date"));
+			r.setEducation(rs.getString("education"));
+			r.setPosition(rs.getString("position"));
+			r.setSalary(rs.getString("salary"));
+			r.setUpdate_date(rs.getString("update_date"));
 
 			System.out.println("get a resume =" + r);
 			gs.add(r);
